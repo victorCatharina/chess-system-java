@@ -25,6 +25,14 @@ public abstract class Piece {
     public boolean isThereAnyPossibleMove() {
 
         boolean[][] mat = possibleMoves();
-        return Arrays.stream(mat).findAny().isPresent();
+
+        for (boolean[] booleans : mat) {
+            for (int j = 0; j < mat.length; j++) {
+                if (booleans[j])
+                    return true;
+            }
+        }
+
+        return false;
     }
 }
